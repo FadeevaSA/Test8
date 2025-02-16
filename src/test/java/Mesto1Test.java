@@ -28,7 +28,15 @@ public class Mesto1Test {
                 .post("/api/cards") // Делаем POST-запрос
                 .then().statusCode(201); // Проверяем код ответа
     }
-
+    @Test
+    @DisplayName("Check user name")
+    @Description("This test is for check current user's name.")
+    public void checkUserName() {
+        given()
+                .auth().oauth2(bearerToken) // Передаём токен для аутентификации
+                .get("/api/users/me") // Делаем GET-запрос
+                .then().assertThat().body("data.name", equalTo("Incorrect Name")); // Проверяем, что имя соответствует ожидаемому
+    }
     @Test
     @DisplayName("Like the first photo")
     @Description("This test is for liking the first photo on Mesto.")
