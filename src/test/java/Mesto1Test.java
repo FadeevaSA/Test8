@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class Mesto1Test {
 
-    String bearerToken = "сюда_впиши_свой_токен";
+    String bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzU4NzQ1MTY1NDBjMTAwM2QxMTVjZjUiLCJpYXQiOjE3Mzk2NDg4MzgsImV4cCI6MTc0MDI1MzYzOH0.St_OAzY4pmHqzqtmc7o-cjhgE-48D3ogvjd5cIgkkRs";
 
     @Before
     public void setUp() {
@@ -34,7 +34,7 @@ public class Mesto1Test {
     @Description("This test is for liking the first photo on Mesto.")
     public void likeTheFirstPhoto() {
         String photoId = getTheFirstPhotoId();
-
+System.out.println(photoId);
         likePhotoById(photoId);
         deleteLikePhotoById(photoId);
     }
